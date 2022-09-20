@@ -75,7 +75,6 @@ public class Ex11 {
 		
 		// 최대 공약수 : 두 수를 나누는 가장 큰 숫자
 		// 두 숫자를 나누는 가장 큰 숫자를 찾는 것이므로 작은 값을 기본값으로 1씩 감소 시키면서 가장 큰 공약수를 찾는다.  
-		
 		for(int i = min ; i > 1 ; i-- ) { // 작은수부터 시작, min값을 1식 감소시키면서 
 			if(min % i == 0 && max % i == 0) { // 작은 수(min) 과 큰 수 (max)가 min부터 1씩 감소시킨 i값으로 나눴을 때 0이 나온다면 두 수의 최대 공약수이다. 
 				System.out.println("두수 " + min + ", " + max + " 의 최대 공약수는 " + i + " 입니다.");
@@ -85,7 +84,7 @@ public class Ex11 {
 		// 최소 공배수
 		// 큰수부터 무한히 1씩 증가 작은 수로 나눌 수 있는 수가 나올때까지
 		// 조건) max부터 1씩 증가한 수가 min값으로도 나뉘고 max값으로도 나뉘는 경우가 최소 공배수 
-		for (int i = max ; max <= i; i++) {
+		for (int i = max ; true; i++) {
 			if (i % min == 0 && i % max == 0) {
 				System.out.println("두수 " + min + ", " + max + " 의 최소 공배수는 " + i + " 입니다.");
 				break;
