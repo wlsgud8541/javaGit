@@ -11,8 +11,13 @@ public class Ex06 {
 
  */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		for (int i = 0; i < 5; i++) { //세로줄이 다섯라인이므로 5번 반복하는 for문 생성
+			for (int j = 0; j < 5; j++) { //가로줄이 다섯라인이므로 5번 반복하는 for문 생성
+				System.out.print("*"); // *모양 출력
+			}
+			System.out.println(); // 라인 변경용
+		}
 	}
+
 
 }

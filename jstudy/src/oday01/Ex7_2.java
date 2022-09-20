@@ -1,6 +1,6 @@
 package oday01;
 
-public class Ex07 {
+public class Ex7_2 {
 /*
  	문제 7 ]
  		*
