@@ -28,7 +28,6 @@ public class Ex11 {
 		System.out.print("두번째 숫자 입력 : ");
 		num2 = sc.nextInt();
 		/*
-		
 		//tempNum1 작은수
 		//tempNem2 큰수
 		if (num1 < num2) {
@@ -46,12 +45,6 @@ public class Ex11 {
 				}
 			}
 		}
-		
-		
-		
-		
-		
-		
 		//tempNum1 12
 		//tempNum2 24 
 		
@@ -72,17 +65,13 @@ public class Ex11 {
 		
 		System.out.println("최대 공약수 : " + resultNum1);
 		System.out.println("최소 공배수 : " + resultNum2);
-
-		
 		*/
 		
 		
 		int min, max;
-		
 		//삼항연산자로 입력받은 값의 가장 작은수와 큰수를 찾는다. 굳이 위 코드처럼 if문 사용할 필요 없음!
 		min = (num1 <= num2) ? num1:num2;
 		max = (num1 <= num2) ? num2:num1;
-		
 		
 		// 최대 공약수 : 두 수를 나누는 가장 큰 숫자
 		// 두 숫자를 나누는 가장 큰 숫자를 찾는 것이므로 작은 값을 기본값으로 1씩 감소 시키면서 가장 큰 공약수를 찾는다.  
