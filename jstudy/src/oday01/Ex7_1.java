@@ -68,14 +68,14 @@ public class Ex7_1 {
 		 * i = 3 / j =  -,1,2,3,4,5,6,7
 		 * i = 4 / j =  1,2,3,4,5,6,7,8,9
 		 * */
-		int temp = 1;
+		int temp = 0;
 		//System.out.println("temp : "+temp);
 		for (int i = 0; i < 5; i++) {
 			for (int j = 4; j > i; j--) {
 				System.out.print(" ");
 			}
 			
-			for (int j = 1; j <= temp ; j++) {
+			for (int j = 0; j <= temp ; j++) {
 				System.out.print("*");
 			}
 			temp += 2;
