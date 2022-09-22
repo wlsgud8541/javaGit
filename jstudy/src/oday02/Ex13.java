@@ -17,19 +17,14 @@ public class Ex13 {
 	
 	public static void main(String[] args) {
 		String temp1; 
-		String str = ""; 
-		char ch1,ch2;
+		String str = "회문수입니다."; 
 
 		Scanner sc = new Scanner(System.in);
 		System.out.print("숫자 입력 : ");
 		temp1 = sc.nextLine();
 		
 		for (int i = 0; i < temp1.length()/2; i++) {
-			ch1 = temp1.charAt(temp1.length()-1-i);
-			ch2 = temp1.charAt(i);
-			if (ch1 == ch2) {
-				str = "회문수입니다.";
-			}else {
+			if (temp1.charAt(temp1.length()-1-i) != temp1.charAt(i)) {
 				str = "회문수가 아닙니다.";
 				break;
 			}
