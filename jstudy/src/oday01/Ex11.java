@@ -15,10 +15,10 @@ public class Ex11 {
 	public static void main(String[] args) {
 		int num1 = 0;  //숫자입력용 변수 1
 		int num2 = 0; //숫자입력용 변수 2
-		int tempNum1 = 0; //임시변수
-		int tempNum2 = 0; //임시변수
-		int resultNum1 = 0; //결과값 저장변수 - 최대 공약수
-		int resultNum2 = 0; //결과값 저장변수 - 최소 공배수
+		//int tempNum1 = 0; //임시변수
+		//int tempNum2 = 0; //임시변수
+		//int resultNum1 = 0; //결과값 저장변수 - 최대 공약수
+		//int resultNum2 = 0; //결과값 저장변수 - 최소 공배수
 	
 		Scanner sc = new Scanner(System.in);
 		

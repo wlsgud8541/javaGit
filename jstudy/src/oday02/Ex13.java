@@ -8,7 +8,6 @@ public class Ex13 {
 	 * 
 	 * 참고] 회문수 : 앞에서 읽으나 뒤에서 읽으나 같은 수를 회문수라고 한다. 예) 12321 => 회문수
 	 * 
-	 * 
 	 * 해결방법 ]
 	 * 	1. 쉬운방법 ] 문자열로 처리하는 방법
 	 * 
@@ -18,31 +17,24 @@ public class Ex13 {
 	
 	public static void main(String[] args) {
 		String temp1; 
-		String temp2 = "";
-		String temp3 = "";
-		char ch1;
-		
+		String str = ""; 
+		char ch1,ch2;
+
 		Scanner sc = new Scanner(System.in);
 		System.out.print("숫자 입력 : ");
 		temp1 = sc.nextLine();
 		
-		for (int i = 0; i < 2; i++) {
-			ch1 = temp1.charAt(i);
-			temp2 += ch1+""; 
-			//System.out.println("temp2 : "+temp2);
+		for (int i = 0; i < temp1.length()/2; i++) {
+			ch1 = temp1.charAt(temp1.length()-1-i);
+			ch2 = temp1.charAt(i);
+			if (ch1 == ch2) {
+				str = "회문수입니다.";
+			}else {
+				str = "회문수가 아닙니다.";
+				break;
+			}
 		}
-		
-		for (int i = 4; i > 2; i--) {
-			ch1 = temp1.charAt(i);
-			temp3 += ch1+"";
-			//System.out.println("temp3 : "+temp3);
-		}
-		
-		if (temp2.equals(temp3)) {
-			System.out.println("입력하신 수 '"+temp1+"'은 회음수입니다.");
-		}else {
-			System.out.println("입력하신 수 '"+temp1+"'은 회음수가 아닙니다.");
-		}
+		System.out.println("입력하신 수 '"+temp1+"'은 "+str);
 		sc.close();
 	}
 }

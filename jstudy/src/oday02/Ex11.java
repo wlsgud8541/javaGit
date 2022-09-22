@@ -21,6 +21,9 @@ public class Ex11 {
 		if (temp%15==0) {
 			num = num-1;
 		}
+		if (num == 0) {
+			num = num+1;
+		}
 		System.out.println("발생한 게시글 수 : "+ temp);
 		System.out.println("페이지 수 : "+ num);
 	}
