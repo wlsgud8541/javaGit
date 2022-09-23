@@ -2,7 +2,7 @@ package oday02;
 
 import java.util.Scanner;
 
-public class Ex13 {
+public class Ex14 {
 	/* 문제 11]
 	 * 다섯자리의 숫자를 입력받아서 그 숫자가 회문수인지 아닌지를 판별하는 프로그램 작성
 	 * 
@@ -16,28 +16,25 @@ public class Ex13 {
 	 * */
 	
 	public static void main(String[] args) {
+		String temp1; 
+		String str = ""; 
+		char ch1,ch2;
 
-		
-		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("숫자 입력 : ");
-		int no  = sc.nextInt();
-		int tmp = no;
-		sc.close();
+		temp1 = sc.nextLine();
 		
-		int num = (int) Math.pow(10, (no + "").length() -1 );
-		String result = "회문수이다.";
-		for (int i = 0; i < (no + "").length() / 2; i++) {
-			if ((tmp / num) != (tmp % 10)) {
-				result = "회문수가 아니다.";
+		for (int i = 0; i < temp1.length()/2; i++) {
+			ch1 = temp1.charAt(temp1.length()-1-i);
+			ch2 = temp1.charAt(i);
+			if (ch1 == ch2) {
+				str = "회문수입니다.";
+			}else {
+				str = "회문수가 아닙니다.";
 				break;
 			}
-			tmp = tmp % num / 10;
-			num /= 100;
 		}
-		System.out.println("입력받은 숫자 [ " + no + " ]는 " + result);
-		
-		
-		
+		System.out.println("입력하신 수 '"+temp1+"'은 "+str);
+		sc.close();
 	}
 }

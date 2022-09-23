@@ -45,6 +45,7 @@ public class Ex02 {
 		 * */    
 		
 		/*
+		//방법 1
 		int temp = 0;
 		for (int i = 1; i < 6; i++) {			// i = 1				=> i = 2 					=> i = 3
 			for (int j = 1; j <= i ; j++) {     // j = 1				=> j = 1, 2					=> j = 1, 2, 3
@@ -58,10 +59,8 @@ public class Ex02 {
 		*/
 		
 		
-		for (int i = 1; i < 5; i++) {
-			
-		}
-		
+		/*		
+		//방법 2
 		for (int i = 0; i < 5; i++) {
 			int temp = i; 
 			int tempNum = 0;
@@ -76,7 +75,15 @@ public class Ex02 {
 			
 			System.out.println();
 		}
+		*/
 		
+		//방법 3
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j <= i; j++) {
+				System.out.printf("%3d" , (i * (i + 1) / 2) +1 + j);
+			}
+			System.out.println();
+		}
 		
 		
 		System.out.println();
