@@ -16,28 +16,20 @@ public class Ex13 {
 	 * */
 	
 	public static void main(String[] args) {
+		String temp1; 
+		String str = "회문수입니다."; 
 
-		
-		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("숫자 입력 : ");
-		int no  = sc.nextInt();
-		int tmp = no;
-		sc.close();
+		temp1 = sc.nextLine();
 		
-		int num = (int) Math.pow(10, (no + "").length() -1 );
-		String result = "회문수이다.";
-		for (int i = 0; i < (no + "").length() / 2; i++) {
-			if ((tmp / num) != (tmp % 10)) {
-				result = "회문수가 아니다.";
+		for (int i = 0; i < temp1.length()/2; i++) {
+			if (temp1.charAt(temp1.length()-1-i) != temp1.charAt(i)) {
+				str = "회문수가 아닙니다.";
 				break;
 			}
-			tmp = tmp % num / 10;
-			num /= 100;
 		}
-		System.out.println("입력받은 숫자 [ " + no + " ]는 " + result);
-		
-		
-		
+		System.out.println("입력하신 수 '"+temp1+"'은 "+str);
+		sc.close();
 	}
 }
