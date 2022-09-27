@@ -2,6 +2,8 @@ package oday03;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Ex02 {
 	/*
 	 * 문제2 ]
@@ -29,7 +31,9 @@ public class Ex02 {
 		//최소 공배수
 		for (int i = numMax;; i++) {
 			if ((i%numMax == 0)&&(i%numMin == 0)) {
-				System.out.println("입력한 숫자 [ "+num1+" , "+num2+" ]의 최소 공배수 : "+i);
+				//System.out.println("입력한 숫자 [ "+num1+" , "+num2+" ]의 최소 공배수 : "+i);
+				String msg = "입력한 숫자 [ "+num1+" , "+num2+" ]의 최소 공배수 : "+i;
+				JOptionPane.showMessageDialog(null, msg);
 				break;
 			}
 		}
@@ -40,6 +44,6 @@ public class Ex02 {
 				break;
 			}
 		}
-		
+		sc.close();
 	}
 }
