@@ -28,8 +28,10 @@ public class Ex02 {
 		int numMax = num1 > num2 ? num1 : num2;
 		int numMin = num1 < num2 ? num1 : num2;
 
-		//최소 공배수
-		for (int i = numMax;; i++) {
+		//방법 1. 최소 공배수
+		/*
+		 for (int i = numMax;; i++) {
+		 
 			if ((i%numMax == 0)&&(i%numMin == 0)) {
 				//System.out.println("입력한 숫자 [ "+num1+" , "+num2+" ]의 최소 공배수 : "+i);
 				String msg = "입력한 숫자 [ "+num1+" , "+num2+" ]의 최소 공배수 : "+i;
@@ -37,10 +39,25 @@ public class Ex02 {
 				break;
 			}
 		}
+		*/
+		//방법 2. 최소 공배수
+		int result = numMax;
+		while (true) {
+			if (result % numMin == 0 && result % numMax == 0) {
+				// 공통 배수를 찾은 경우
+				String msg = "입력한 숫자 [ "+num1+" , "+num2+" ]의 최소 공배수 : "+result;
+				JOptionPane.showMessageDialog(null, msg);
+				break;
+			}
+			result++;
+		}
+		
 		//최대 공약수
 		for (int i = numMin; i > 0; i--) {
 			if ((numMax%i == 0) && (numMin%i == 0)) {
-				System.out.println("입력한 숫자 [ "+num1+" , "+num2+" ]의 최대 공약수 : "+i);
+				//System.out.println("입력한 숫자 [ "+num1+" , "+num2+" ]의 최대 공약수 : "+i);
+				String msg = "입력한 숫자 [ "+num1+" , "+num2+" ]의 최대 공약수 : "+i;
+				JOptionPane.showMessageDialog(null, msg);
 				break;
 			}
 		}

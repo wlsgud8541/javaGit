@@ -10,6 +10,19 @@ package oday03;
 
 public class Ex04 {
 	public static void main(String[] args) {
+		int no = (int)(Math.random()*98 +3);
 		
+		//결과값 변수
+		String result = "소수입니다.";
+		for (int i = 2; i < no; i++) {
+			if (no % i == 0) {
+				// i로 나누어 떨어지는 경우
+				result = "소수가 아닙니다.";
+				// 반복 작업의 의미가 없어졌으므로 즉시 종료시킨다.
+				break;
+			}
+		}
+		
+		System.out.println(no + "는 " +result);
 	}
 }

@@ -1,4 +1,4 @@
-package oday03;
+package oday07;
 
 /*
  *  문제 6]
