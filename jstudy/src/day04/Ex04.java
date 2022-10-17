@@ -10,13 +10,13 @@ public class Ex04 {
 	 * */
 	public static void main(String[] args) {
 		//원본 데이터 저장
-		double rYear = 365.2426;
+		double temp = 365.2426;
 
 		//나머지 연도 값
-		int year = (int) rYear;
+		int year = (int) temp;
 		
 		//0.2426 * 24(시간) * 60(분) * 60(초) ==> 0.2426에 대한 시간을 초로 환산
-		int total = (int)((rYear - year) * 24 * 60 * 60);
+		int total = (int)((temp - year) * 24 * 60 * 60);
 
 		//시간
 		int hour = total / 60 / 60;
