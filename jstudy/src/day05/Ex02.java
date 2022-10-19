@@ -24,10 +24,11 @@ public class Ex02 {
 		System.out.print("문자 입력 : ");
 		String str = sc.nextLine();
 		
-		String result = (str.charAt(0) >= 'a' && str.charAt(0) <= 'z') ? "소문자입니다." : "대문자입니다.";
-		String result2 = (str.charAt(0) >= 'a' && str.charAt(0) <= 'z') ? str.toUpperCase() : str.toLowerCase();
+		String result = (str.charAt(0) >= 'a' && str.charAt(0) <= 'z') ? "소문자" : "대문자";
+		//String result2 = (str.charAt(0) >= 'a' && str.charAt(0) <= 'z') ? str.toUpperCase() : str.toLowerCase();
+		char result2 = (char) ((str.charAt(0) >= 'a' && str.charAt(0) <= 'z') ? str.charAt(0)-('a'-'A') : str.charAt(0)+('a'-'A'));
 		
-		System.out.println("입력하신 문자 ["+str.charAt(0)+"] 는 "+result);
-		System.out.println("입력하신 문자 ["+str.charAt(0)+"] 의 변환된 문자는 ["+result2+"] 입니다.");
+		System.out.printf("입력하신 문자 [%c] 는 '%s'이며, 변환된 문자는 [%c] 입니다.",str.charAt(0), result, result2);
+		
 	}
 }	
