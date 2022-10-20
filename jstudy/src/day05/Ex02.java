@@ -23,10 +23,14 @@ public class Ex02 {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("문자 입력 : ");
 		String str = sc.nextLine();
+		char ch = str.charAt(0);
 		
-		String result = (str.charAt(0) >= 'a' && str.charAt(0) <= 'z') ? "소문자" : "대문자";
+		//String result = (str.charAt(0) >= 'a' && str.charAt(0) <= 'z') ? "소문자" : "대문자";
 		//String result2 = (str.charAt(0) >= 'a' && str.charAt(0) <= 'z') ? str.toUpperCase() : str.toLowerCase();
-		char result2 = (char) ((str.charAt(0) >= 'a' && str.charAt(0) <= 'z') ? str.charAt(0)-('a'-'A') : str.charAt(0)+('a'-'A'));
+		//char result2 = ((str.charAt(0) >= 'a' && str.charAt(0) <= 'z') ? str.charAt(0)-('a'-'A') : str.charAt(0)+('a'-'A'));
+		
+		String result = (ch < 'a') ? "대문자" : "소문자";
+		char result2 = (ch < 'a') ? (char)(ch+('a'-'A')) : (char)(ch-('a'-'A'));
 		
 		System.out.printf("입력하신 문자 [%c] 는 '%s'이며, 변환된 문자는 [%c] 입니다.",str.charAt(0), result, result2);
 		

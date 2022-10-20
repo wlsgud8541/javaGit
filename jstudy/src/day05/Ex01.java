@@ -33,6 +33,8 @@ public class Ex01 {
 		int result = (no1 > no2) ? ((no1 > no3) ? no1 : no3 ) :
 								   ((no2 > no3) ? no2 : no3 ) ;
 		
-		System.out.println("입력한 숫자 "+no1+","+no2+","+no3+"중 가장 큰 숫자는 ["+result+"] 입니다.");
+		//System.out.println("입력한 숫자 "+no1+","+no2+","+no3+"중 가장 큰 숫자는 ["+result+"] 입니다.");
+		System.out.printf("입력한 숫자 [%d], [%d], [%d] 중 가장 큰 숫자는 [%d] 입니다.",no1,no2,no3,result);
+		
 	}
 }

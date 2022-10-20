@@ -26,7 +26,8 @@ public class Extra {
 											(num >= 80 && num < 90) ? "B" :
 												(num >= 90 && num <= 100) ? "A" : "입력 값을 벗어 났습니다."))); 
 		
-		System.out.println("획득한 점수 :"+num+" / 학점 :"+result);
+		//System.out.println("획득한 점수 :"+num+" / 학점 :"+result);
+		System.out.printf("획득한 점수 : %d / 학점 : %s",num,result);
 		
 	}
 }
