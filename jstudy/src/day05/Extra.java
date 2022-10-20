@@ -21,9 +21,9 @@ public class Extra {
 		int num = (int)(Math.random()*101);
 		
 		String result = (num < 60) ? "F" : (
-							(num >= 60 && num < 70) ? "D" : (
-									(num >= 70 && num < 80) ? "C" : (
-											(num >= 80 && num < 90) ? "B" : "A"))); 
+								(num < 70) ? "D" : (
+										(num < 80) ? "C" : (
+												(num < 90) ? "B" : "A"))); 
 		
 		//System.out.println("획득한 점수 :"+num+" / 학점 :"+result);
 		System.out.printf("획득한 점수 : %d / 학점 : %s",num,result);
