@@ -39,5 +39,8 @@ public class Test05 {
 		
 		//System.out.println("sum : " + sum);
 		//System.out.println("flag : " + (flag ? "비정상종료" : "정상종료"));
+		
+		
+		System.out.println( 10%5);
 	}
 }

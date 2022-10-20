@@ -23,8 +23,7 @@ public class Extra {
 		String result = (num < 60) ? "F" : (
 							(num >= 60 && num < 70) ? "D" : (
 									(num >= 70 && num < 80) ? "C" : (
-											(num >= 80 && num < 90) ? "B" :
-												(num >= 90 && num <= 100) ? "A" : "입력 값을 벗어 났습니다."))); 
+											(num >= 80 && num < 90) ? "B" : "A"))); 
 		
 		//System.out.println("획득한 점수 :"+num+" / 학점 :"+result);
 		System.out.printf("획득한 점수 : %d / 학점 : %s",num,result);

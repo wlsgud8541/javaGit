@@ -41,5 +41,6 @@ public class Test03 {
 		for (Object o : lotto) {
 			System.out.print(o + ", ");
 		}
+		
 	}
 }
