@@ -27,6 +27,5 @@ public class Extra {
 		
 		//System.out.println("획득한 점수 :"+num+" / 학점 :"+result);
 		System.out.printf("획득한 점수 : %d / 학점 : %s",num,result);
-		
 	}
 }
