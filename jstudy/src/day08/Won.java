@@ -8,11 +8,13 @@ public class Won {
 	//둘레 함수
 	public void setRound() {
 		round = 2 * 3.14 * radius;
+		//System.out.println(round);
 	}
 	
 	//면적 함수
 	public void setArea() {
 		area = radius * radius * 3.14;
+		//System.out.println(area);
 	}
 	
 }
