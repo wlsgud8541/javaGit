@@ -20,6 +20,19 @@ public class Test03 {
 		for (Nemo n : nemo) {
 			System.out.print(n + ", ");
 		}
+		System.out.println();
+		System.out.println("==================================================");
+		  
+		  long n = 153243;
+		  int[] answer = {};
+		  String temp = n+"";
+	      for(int i = 0; i < temp.length(); i++){
+	          answer = new int[temp.length()];
+	      	  answer[i] = (int)(n%10);
+	          n = n/10;
+	      }
+	      System.out.println(answer);
+		        
 		
 		
 	}
