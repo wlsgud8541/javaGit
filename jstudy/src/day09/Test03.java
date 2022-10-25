@@ -23,17 +23,18 @@ public class Test03 {
 		System.out.println();
 		System.out.println("==================================================");
 		  
-		  long n = 153243;
-		  int[] answer = {};
-		  String temp = n+"";
-	      for(int i = 0; i < temp.length(); i++){
-	          answer = new int[temp.length()];
-	      	  answer[i] = (int)(n%10);
-	          n = n/10;
-	      }
-	      System.out.println(answer);
-		        
+		long n = 121;
+		long answer = 0;
 		
+	    for(long i = 0; i < n; i++){
+             if((i*i) == n){
+                 answer = (i+1) * (i+1); 
+                 break;
+             }else{
+                 answer = -1;
+            }
+        }
+ 	    System.out.println(answer);
 		
 	}
 	
