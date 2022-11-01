@@ -1,5 +1,7 @@
 package day15;
 
+import java.util.Scanner;
+
 public class Ex02 {
 /*
  * 1. 다음두 변수르르 기억하는 클래스 Point 를 제작
@@ -14,7 +16,7 @@ public class Ex02 {
  * 3. 다음 기능을 가진 함수를 추가하세요.
  * 		1) 입력된 값으로 x의 값을 수정하는 함수
  * 		2) 입력된 값으로 y의 값을 수정하는 함수
- * 		3) 입력된 두 값으로 x, y를 수정하는 함수 setXY()
+ * 		3) 입력된 두 값으로 x, y를 수정하는 함수 setXy()
  * 		4) getters 함수
  * 		5) x와 y값을 출력해주는 함수 toPrint
  * 
@@ -23,7 +25,29 @@ public class Ex02 {
  * 
  * */
 	public Ex02() {
+		Point point = new Point();
+		
+		Scanner sc = new Scanner(System.in);
+	
+		System.out.print("(1) x값을 입력 : ");
+		point.x = sc.nextInt();
+		
+		System.out.print("(2) y값을 입력 : ");
+		point.y = sc.nextInt();
+		
+		point.toPrint();
+		System.out.println("=========================================");
+	
+		int[] nums = new int[2];
+		
+		System.out.print("(2) x값을 입력 : ");
+		nums[0] = sc.nextInt();
+		System.out.print("(2) y값을 입력 : ");
+		nums[1] = sc.nextInt();
 
+		point = new Point(nums);
+		
+		sc.close();
 	}
 	public static void main(String[] args) {
 		new Ex02();

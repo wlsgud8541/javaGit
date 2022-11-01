@@ -28,33 +28,18 @@ public class Stud {
 		setAvg();
 	}
 
-	public Stud(Stud[] stud) {
+	public Stud(int ban, int no, String name, int ... num) {
 		this.rank = 1;
-		for (int i = 0; i < stud.length; i++) {
-			this.ban = stud[i].ban;
-			this.no = stud[i].no;
-			this.name = stud[i].name;
-			this.kor = stud[i].kor;
-			this.eng = stud[i].eng;
-			this.math = stud[i].math;
-			
+			this.ban = ban;
+			this.no = no;
+			this.name = name;
+			for (int i = 0; i < num.length; i++) {
+				this.kor = num[i];
+				this.eng = num[i];
+				this.math = num[i];
+			}
 			setTotal();
 			setAvg();
-			
-			stud[i].total = getTotal();
-			stud[i].avg = getAvg();
-		}
-		
-		for (int i = 0; i < stud.length; i++) {
-			for (int j = 0; j < stud.length; j++) {
-				setRank(stud[j]);
-			}
-			stud[i].rank = rank;
-		}
-
-		for (int i = 0; i < stud.length; i++) {
-			stud[i].toPrint();
-		}
 	}
 	
 	
