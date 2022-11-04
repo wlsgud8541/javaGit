@@ -7,19 +7,17 @@ public class Sub01{
 	}
 
 	public Sub01(Extra ex) {
+		ExSort sort = new ExSort();
 		this.ex = ex;
 		setArr(ex);
-		setArrIn(ex.arr);
-		setSort(ex.arr);
+		sort.arrSort(ex.arr);
+		//setSort(ex.arr);
 		setPrint();
 	}
 
 	private void setArr(Extra ex) {
 		ex.arr = new Dohyung[10];
 		Dohyung[] dArr = ex.arr;
-	}
-	
-	public void setArrIn(Dohyung[] dArr) {
 		for (int i = 0; i < dArr.length; i++) {
 			int num = (int)(Math.random()*3);
 			int rad = (int)(Math.random()*16+5);
@@ -40,6 +38,7 @@ public class Sub01{
 		}
 	}
 	
+	/*
 	public void setSort(Dohyung[] dArr) {
 		for (int i = 0; i < dArr.length-1; i++) {
 			double num1 = dArr[i].getArea();
@@ -55,7 +54,7 @@ public class Sub01{
 			}
 		}
 	}
-	
+	*/
 	public void setPrint() {
 		for (Dohyung d : this.ex.arr) {
 			d.toPrint();
