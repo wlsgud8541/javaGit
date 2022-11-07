@@ -1,0 +1,56 @@
+package class15B.sql;
+
+public class EmpSQL {
+	public final int SEL_NAME_LIST = 1001;
+	public final int SEL_NAME_INFO = 1002;
+	public final int SEL_DEPT_LIST = 1003;
+	public final int SEL_DEPT_INFO = 1004;
+	
+	public String getSQL(int code) {
+		StringBuffer buff = new StringBuffer();
+
+		switch (code) {
+		case SEL_NAME_LIST:
+			buff.append("SELECT ENAME ename ");
+			buff.append("FROM EMP ");
+			break;
+		case SEL_NAME_INFO:
+			//사원번호, 사원이름, 직급, 상사이름, 입사일, 급여, 급여등급, 커미션, 부서이름 조회
+			buff.append("SELECT e1.EMPNO mno ");
+			buff.append(", e1.ENAME name ");
+			buff.append(", e1.JOB job ");
+			buff.append(", e2.ENAME sname ");
+			buff.append(", e1.HIREDATE hdate ");
+			buff.append(", e1.SAL sal ");
+			buff.append(", s.GRADE grade ");
+			buff.append(", e1.COMM comm ");
+			buff.append(", d.DNAME dname ");
+			buff.append("FROM EMP e1 ");
+		    buff.append(", EMP e2 ");
+			buff.append(", SALGRADE s ");
+			buff.append(", DEPT d ");
+			buff.append("WHERE e1.DEPTNO = d.DEPTNO ");
+			buff.append("AND e1.MGR = e2.EMPNO(+) ");
+			buff.append("AND e1.SAL BETWEEN s.LOSAL AND s.HISAL ");	
+			buff.append("AND e1.ENAME = ? ");
+			break;
+		
+		case SEL_DEPT_LIST:
+			buff.append("SELECT deptno ");
+			buff.append("FROM DEPT ");
+			break;
+			
+		case SEL_DEPT_INFO:
+			buff.append("SELECT deptno ");
+			buff.append(", empno ");
+			buff.append(", ename ");
+			buff.append(", job ");
+			buff.append("FROM EMP ");
+			buff.append("WHERE DEPTNO = ? ");
+			break;
+		}
+		
+		// 질의명령 반환
+		return buff.toString();
+	}
+}
