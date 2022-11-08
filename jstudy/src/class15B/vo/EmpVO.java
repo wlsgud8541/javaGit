@@ -6,7 +6,7 @@ import java.text.*;
 
 public class EmpVO {
 	private int mno, mgr, dno, sal, comm, grade;
-	private String name, job, sname, dname, loc, sdate;
+	private String name, job, sname, dname, loc, sdate, mail;
 	private Date hdate;
 	private Time htime;
 	
@@ -58,6 +58,12 @@ public class EmpVO {
 	}
 	public void setJob(String job) {
 		this.job = job;
+	}
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 	public String getSname() {
 		return sname;

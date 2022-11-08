@@ -166,15 +166,14 @@ public class EmpDao {
 		return eVO;
 	}
 	
-	public ArrayList getDeptNoList() {
-		ArrayList list = new ArrayList();
-		con = db.getCon("scott","tiger");
-		String sql = eSQL.getSQL(eSQL.SEL_DEPT_LIST);
-		stmt = db.getStmt(con);
+	public ArrayList<Integer> getDeptNoList() {
+		ArrayList<Integer> list = new ArrayList<Integer>(); //반환값 변수
+		con = db.getCon("scott","tiger");					//커넥션
+		String sql = eSQL.getSQL(eSQL.SEL_DEPT_LIST);		//질의명령 가져오기
+		stmt = db.getStmt(con);								//명령전달도구
 		try {
-			rs = stmt.executeQuery(sql);
-			
-			while (rs.next()) {
+			rs = stmt.executeQuery(sql);					//질의명령 보내기
+			while (rs.next()) {								//한줄씩 내리면서 꺼내서 리스트에 담기
 				int deptNo = rs.getInt("deptNo");
 				list.add(deptNo);
 			}
@@ -185,13 +184,11 @@ public class EmpDao {
 			db.close(stmt);
 			db.close(con);
 		}
-		
-		
-		return list;
+		return list;										//리스트 반환
 	}
 	
-	public ArrayList getDeptInfo(int dept) {
-		ArrayList list = new ArrayList();
+	public ArrayList<EmpVO> getDeptInfo(int dept) {
+		ArrayList<EmpVO> list = new ArrayList<EmpVO>();
 		con = db.getCon("scott","tiger");
 		String sql = eSQL.getSQL(eSQL.SEL_DEPT_INFO);
 		pstmt = db.getPstmt(con, sql);
@@ -205,28 +202,112 @@ public class EmpDao {
 				int empno = rs.getInt("empno");
 				String ename = rs.getString("ename");
 				String job = rs.getString("job");
+				int sal = rs.getInt("sal");
 				
 				eVO.setDno(deptno);
 				eVO.setMno(empno);
 				eVO.setName(ename);
 				eVO.setJob(job);
+				eVO.setSal(sal);
 				
 				list.add(eVO);
 			}
 			
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}finally {
 			db.close(rs);
 			db.close(pstmt);
 			db.close(con);
 		}
-		
 		return list;
 	}
 	
+	public int addEmp(EmpVO eVO) {
+		//0. 반환값 변수
+		int result = 0;
+		
+		//1. 커넥션 꺼내오기
+		con = db.getCon("scott","tiger");
+		System.out.println(eVO.getName());
+		System.out.println(eVO.getJob());
+		System.out.println(eVO.getSname());
+		System.out.println(eVO.getSal());
+		System.out.println(eVO.getComm());
+		System.out.println(eVO.getMail());
+		//2. 질의명령 가져오기
+		String sql = eSQL.getSQL(eSQL.ADD_EMP);
+		
+		//3. 명령전달도구 가져오기
+		pstmt = db.getPstmt(con, sql);
+		//4. 질의명령 완성하기
+		try {
+			pstmt.setString(1, eVO.getName());
+			pstmt.setString(2, eVO.getJob());
+			pstmt.setString(3, eVO.getSname());
+			pstmt.setInt(4, eVO.getSal());
+			pstmt.setInt(5, eVO.getComm());
+			pstmt.setString(6, eVO.getSname());
+			pstmt.setString(7, eVO.getMail());
+			
+			//5. 질의명령 보내고 결과받기
+			/*
+			 * 삽입, 수정, 삭제 질의명령의 경우
+			 * 인라인테이블이 만들어지지 않기 때문에
+			 * 처리결과를 알아보려면
+			 * 	 executeUpdate()
+			 * 함수를 사용하는 것이 편리하다.
+			 * 이 함수의 반환값은 int인데
+			 * 의미는 처리결과 변경된 행의 수를 반환해준다.
+			 * 따라서 삽입 질의명령의 결과는
+			 *	 성공했을 경우 1
+			 *	 실패했을 경우 0
+			 * 으로 반환해준다.
+			 * 
+			 * */
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		//6. 반환값 내보내기
+		return result;
+	}
 	
-	
+	// 사원이름과 급여를 입력받아서 수정해주는 작업 전담 처리함수
+	public int editNameSal(String name, int sal) {
+		//1.반환값 변수 만들기
+		int result = 0;
+		//2.커넥션 연결
+		con = db.getCon("scott","tiger");
+		//3.질의명령 생성
+		String sql = eSQL.getSQL(eSQL.EDIT_ENO_SAL);
+		//4.명령전달도구생성
+		pstmt = db.getPstmt(con, sql);
+		try {
+			pstmt.setInt(1, sal);
+			pstmt.setString(2, name);
+			
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		//5.질의명령 완성
+		
+		//6.질의명령 보내고 결과박기
+		
+		
+		//7.결과 반환해주기
+		return result;
+		
+	}
 	
 	
 	
