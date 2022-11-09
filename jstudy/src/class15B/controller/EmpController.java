@@ -190,19 +190,19 @@ public class EmpController {
 	}
 	
 	// 사원 이름과 급여 입력받아서 해당 사원의 급여를 수정해주는 작업
-		public void editNameSal() {
-			String name = JOptionPane.showInputDialog("이름입력").toUpperCase();
-			int sal = Integer.parseInt(JOptionPane.showInputDialog("수정급여"));
-			
-			int result = eDao.editNameSal(name, sal);
-			
-			if (result == 0) {
-				JOptionPane.showMessageDialog(null, "수정 실패");
-			}else {
-				JOptionPane.showMessageDialog(null, "수정 성공");
-			}
-			
+	public void editNameSal() {
+		String name = JOptionPane.showInputDialog("이름입력").toUpperCase();
+		int sal = Integer.parseInt(JOptionPane.showInputDialog("수정급여"));
+		
+		int result = eDao.editNameSal(name, sal);
+		
+		if (result == 0) {
+			JOptionPane.showMessageDialog(null, "수정 실패");
+		}else {
+			JOptionPane.showMessageDialog(null, "수정 성공");
 		}
+		
+	}
 	
 	public static void main(String[] args) {
 		new EmpController();

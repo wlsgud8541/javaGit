@@ -55,6 +55,26 @@ public class PageUtil {
 		setRno();
 		setPage();
 	}
+
+	public void setPageUtil(int nowPage, int totalCount) {
+		this.nowPage = nowPage;
+		this.totalCount = totalCount;
+		
+		setTotalPage();
+		setRno();
+		setPage();
+	}
+
+	public void setPageUtil(int nowPage, int totalCount, int pageRow, int pageGroup) {
+		this.nowPage = nowPage;
+		this.totalCount = totalCount;
+		this.pageRow = pageRow;
+		this.pageGroup = pageGroup;
+		
+		setTotalPage();
+		setRno();
+		setPage();
+	}
 	
 	public void setTotalPage() {
 		totalPage = (totalCount == 0) ? 1 : (totalCount % pageRow == 0) ? (totalCount /pageRow) : (totalCount / pageRow +1);

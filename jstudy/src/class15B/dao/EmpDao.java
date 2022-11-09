@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import class15B.sql.EmpSQL;
+import class15B.util.PageUtil;
 import class15B.vo.EmpVO;
 import db.SmartJDBC;
 
@@ -289,6 +290,7 @@ public class EmpDao {
 		//4.명령전달도구생성
 		pstmt = db.getPstmt(con, sql);
 		try {
+			//5.질의명령 완성
 			pstmt.setInt(1, sal);
 			pstmt.setString(2, name);
 			
@@ -299,15 +301,106 @@ public class EmpDao {
 			db.close(pstmt);
 			db.close(con);
 		}
-		//5.질의명령 완성
 		
-		//6.질의명령 보내고 결과박기
+		//6.질의명령 보내고 결과받기
 		
 		
 		//7.결과 반환해주기
 		return result;
 		
 	}
+	
+	// 총 사원 수 조회 전담 처리 함수
+	public int getTotal() {
+		// 1. 반환값 변수 만들기
+		int cnt = 0;
+		// 2. 커넥션 연결
+		con = db.getCon("scott", "tiger");
+		// 3. 질의명령 생성
+		String sql = eSQL.getSQL(eSQL.SEL_TOTAL);
+		// 4. 명령전달 도구 생성
+		stmt = db.getStmt(con);
+		try {
+			// 5. 질의명령 전달 및 결과 받기
+			rs = stmt.executeQuery(sql);
+			
+			// 6. 데이터 꺼내기
+			rs.next();
+			cnt = rs.getInt("cnt");
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			db.close(rs);
+			db.close(stmt);
+			db.close(con);
+		}
+		
+		// 7. 반환
+		return cnt;
+	}
+	
+	public ArrayList<EmpVO> getEmpList(PageUtil page){
+		// 1.반환값 변수 만들기
+			ArrayList<EmpVO> list = new ArrayList<EmpVO>();
+		// 2.커넥션연결
+			con = db.getCon("scott", "tiger");
+		// 3.질의명령 생성
+			String sql = eSQL.getSQL(eSQL.SEL_EMP_LIST);
+		// 4.명령전달 도구 생성
+			pstmt = db.getPstmt(con, sql);
+			try {
+				// 5.질의 명령 완성
+				pstmt.setInt(1, page.getStartRno());
+				pstmt.setInt(2, page.getEndRno());
+				// 6.질의 명령 전달 및 결과 받기
+				rs = pstmt.executeQuery();
+
+				// 7.데이터 꺼내서 VO에 담기
+				while (rs.next()) {
+					// 7-1. 반복해서 VO 만들기
+					EmpVO eVO = new EmpVO();
+					int rno = rs.getInt("rno");
+					int mno = rs.getInt("mno");
+					int dno = rs.getInt("dno");
+					String name = rs.getString("name");
+					Date hdate = rs.getDate("hdate");
+					
+					// 7-2. VO에 채우기
+					eVO.setMno(mno);
+					eVO.setDno(dno);
+					eVO.setName(name);
+					eVO.setHdate(hdate);
+					eVO.setSdate();
+					
+					// 8.List에 VO 담기
+					list.add(eVO);
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				db.close(rs);
+				db.close(pstmt);
+				db.close(con);
+			}
+		// 9.List 반환
+			return list;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
