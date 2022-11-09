@@ -38,6 +38,7 @@ public class Ex01 {
 			int result = 0;
 			@Override
 			public int compare(Object o1, Object o2) {
+				
 				Figure figure1 = (Figure)o1;
 				Figure figure2 = (Figure)o2;
 				

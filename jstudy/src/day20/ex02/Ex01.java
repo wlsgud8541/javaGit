@@ -17,7 +17,6 @@ public class Ex01 {
 		
 		while (set.size() < 10) {
 			int temp = (int)(Math.random()*3);
-			//int temp = 0;
 			int rad = (int)(Math.random()*16+5);
 			int width = (int)(Math.random()*16+5);
 			int height = (int)(Math.random()*16+5);
