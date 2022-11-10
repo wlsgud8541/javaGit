@@ -32,7 +32,12 @@ public class EmpController {
 	
 	public void mainWin() {
 		while (check) {
-			String sno = JOptionPane.showInputDialog("(1) - 사원이름으로 조회\n(2) - 부서번호로 조회\n(3) - 사원추가\n(4) - 사원급여수정\n(Q) - 종료");
+			String sno = JOptionPane.showInputDialog("(1) - 사원이름으로 조회\n"
+												   + "(2) - 부서번호로 조회\n"
+												   + "(3) - 사원추가\n"
+												   + "(4) - 사원급여수정\n"
+												   + "(5) - (과제)사원이름 검색\n"
+												   + "(Q) - 종료");
 			sno = sno.toUpperCase();
 			if (sno.equals("Q")) {
 				check = false;
@@ -77,11 +82,17 @@ public class EmpController {
 						}
 					}
 					break;
+				
 				case "3":
 					addEmp();
 					break;
+			
 				case "4":
 					editNameSal();
+					break;
+				
+				case "5":
+					findNameList();
 					break;
 			}
 		}
@@ -201,8 +212,26 @@ public class EmpController {
 		}else {
 			JOptionPane.showMessageDialog(null, "수정 성공");
 		}
-		
 	}
+	
+	// 과제1 )
+	// 이름을 입력하면 이름에 해당하는 사원들의 
+	// [사원번호, 사원이름, 급여, 입사일, 부서번호]
+	// 를 출력해주는 기능을 추가
+	public void findNameList() {
+		String name = JOptionPane.showInputDialog("사원이름 입력").toUpperCase();
+		
+		ArrayList<EmpVO> list = eDao.findNameList(name);
+		
+		for (EmpVO eVO : list) {
+			System.out.printf("사원번호 : %3d | 사원이름 : %3s | 사원급여 : %3d | 입사일 : %3s | 부서번호 : %3d",eVO.getMno(),eVO.getName(),eVO.getSal(),eVO.getSdate(),eVO.getDno());
+			System.out.println();
+		}
+	}
+	
+	// 과제2 )
+	// 2. 출력된 사원의 사원번호와 급여를 입력해서 사원의 급여를 수정해주는 기능을 구현.   	
+	
 	
 	public static void main(String[] args) {
 		new EmpController();

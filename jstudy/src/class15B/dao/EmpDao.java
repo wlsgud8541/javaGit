@@ -388,7 +388,42 @@ public class EmpDao {
 			return list;
 	}
 	
-	
+	public ArrayList<EmpVO> findNameList(String name){
+		ArrayList<EmpVO> list = new ArrayList<EmpVO>();
+		con = db.getCon("scott","tiger");
+		String sql = eSQL.getSQL(eSQL.SEL_FIND_NAME_LIST);
+		pstmt = db.getPstmt(con, sql);
+		
+		try {
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				EmpVO eVO = new EmpVO();
+				int empno = rs.getInt("empno");
+				String ename = rs.getString("ename");
+				int sal = rs.getInt("sal");
+				Date hdate = rs.getDate("hiredate");
+				int deptno = rs.getInt("deptno");
+
+				eVO.setMno(empno);
+				eVO.setName(ename);
+				eVO.setSal(sal);
+				eVO.setHdate(hdate);
+				eVO.setSdate();
+				eVO.setDno(deptno);
+				
+				list.add(eVO);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return list;
+	}
 	
 	
 	
