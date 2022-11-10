@@ -18,7 +18,7 @@ public class Test04 {
 		System.out.println("age : " + age);
 		System.out.println("mail : " + mail);
 	}
-	
+	 
 	public static void main(String[] args) {
 		new Test04();
 	}
